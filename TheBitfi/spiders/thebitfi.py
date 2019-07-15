@@ -23,7 +23,7 @@ class ThebitfiSpider(scrapy.Spider):
             #print(response.text)
             title = response.xpath('//*[contains(@class,"faq-section")]/h2/text()').get()
             subtitle = response.xpath('//*[contains(@class,"faq-section")]/h3/text()').get().rsplit('\\', 1)[0][1:].replace('\\', '/')
-            code = response.xpath('//*[contains(@class,"faq-code")]/text()').get()
+            code = response.xpath('//*[contains(@class,"faq-code")]/text()').extract()
 
             try:  
                 os.makedirs('output/' + subtitle)
@@ -31,4 +31,5 @@ class ThebitfiSpider(scrapy.Spider):
                 pass
 
             with open('output/' + subtitle + '/' + title, 'a') as f:
-                f.write(code)
+                for line in code:
+                    f.write(line + '\n')
