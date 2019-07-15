@@ -4,7 +4,6 @@ The Bitfi sources are locate at [bitfi.dev](https://bitfi.dev/NoxMessages/Articl
 With this Scrapy spider you will get the latest sources from [bitfi.dev](https://bitfi.dev)
 
 ## Prerequisites
-* Python 2.7
 * Scrapy
 
 ## How to install
