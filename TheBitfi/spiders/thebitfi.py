@@ -28,10 +28,7 @@ class ThebitfiSpider(scrapy.Spider):
             try:  
                 os.makedirs('output/' + subtitle)
             except OSError as exc:
-                if exc.errno == errno.EEXIST and os.path.isdir(subtitle):
-                    pass
-                else:
-                    raise
+                pass
 
             with open('output/' + subtitle + '/' + title, 'a') as f:
                 f.write(code)
